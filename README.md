@@ -1,8 +1,11 @@
-# Sample Hardhat Project
+# BuyMeCoffee DApp
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Created following Alchemy Road to Web3 tutorials https://docs.alchemy.com/docs/how-to-build-buy-me-a-coffee-defi-dapp
 
-Try running some of the following tasks:
+Contract deployed on Goerli test net: 0xDed07BD25A4FAB6602646030B19F841d4B2a97e8
+
+Front end demo here: https://buymeacoffee-solidity-defi-tipping-app.mthiagar.repl.co/
+
 
 ```shell
 npx hardhat help
