@@ -14,6 +14,13 @@ async function main() {
   await buyMeACoffee.deployed();
 
   console.log("BuyMeACoffee deployed to: ", buyMeACoffee.address);
+
+  //change owner of withdraw
+  console.log(await buyMeACoffee.owner())
+  console.log(await buyMeACoffee.current_withdraw())
+  console.log("==== Change in Withdraw Address ===");
+  await buyMeACoffee.changeOwner("0x70a210aFa1fC1258C9C3f7da1C382E81a56A9194");
+  console.log(await buyMeACoffee.current_withdraw())  
 }
 
 // We recommend this pattern to be able to use async/await everywhere and properly handle errors.

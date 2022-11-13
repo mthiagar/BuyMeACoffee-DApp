@@ -3,8 +3,10 @@ pragma solidity ^0.8.0;
 
 // Uncomment this line to use console.log
 import "hardhat/console.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BuyMeACoffee {
+
+contract BuyMeACoffee is Ownable{
     // Event to emit when a Memo is created.
     event NewMemo(
         address indexed from,
@@ -22,8 +24,8 @@ contract BuyMeACoffee {
     }
 
     // Address of contract deployer. Marked payable so that
-    // we can withdraw to this address later.abi
-    address payable owner;
+    // we can withdraw to this address later
+    address payable Owner;
 
     // List of all memos received from coffee purchases.
     Memo[] memos;
@@ -31,7 +33,15 @@ contract BuyMeACoffee {
     constructor() {
         // Store the address of the deployer as a payable address.
         // When we withdraw funds, we'll withdraw here
-        owner = payable(msg.sender);        
+        Owner = payable(msg.sender);        
+    }
+
+    function changeOwner(address _withdrawAddress) onlyOwner public {
+        Owner = payable(_withdrawAddress);
+    }
+
+    function current_withdraw() public view returns (address) {
+        return Owner;
     }
 
     /**
@@ -72,7 +82,7 @@ contract BuyMeACoffee {
      * @dev send the entire balance stored in this contract to the owner
      */
     function withdrawTips() public {
-        require(owner.send(address(this).balance));
+        require(Owner.send(address(this).balance));
     }
 }
 

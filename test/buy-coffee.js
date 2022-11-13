@@ -64,6 +64,13 @@ async function main() {
     console.log("== memos ==");
     const memos = await buyMeACoffee.getMemos();
     printMemos(memos);
+
+    // Change the withdraw address
+    const previousOwner = await buyMeACoffee.owner();
+    console.log(await buyMeACoffee.current_withdraw())
+    console.log("==== Change in Withdraw Address ===");
+    await buyMeACoffee.changeOwner("0x0dFFCe077ec519615C8Dd7Ee386e1dDAa596EB23");
+    console.log(await buyMeACoffee.current_withdraw())
 }
 
 // We recommend this patten to be able use async/await everywhere

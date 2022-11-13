@@ -10,7 +10,7 @@ async function getBalance(provider, address) {
 
 async function main() {
     // Get the contract that has been deployed to Goerli.
-    const contractAddress="0xDed07BD25A4FAB6602646030B19F841d4B2a97e8";
+    const contractAddress="0xCf3Bb225A253741b8117be18a13D8ccBE2E26721";
     const contractABI = abi.abi;
 
     // Get the node connection and wallet connection.
@@ -38,7 +38,7 @@ async function main() {
     }
 
     // Check ending balance.
-    console.log("current balance of ownser: ", await getBalance(provider, signer.address), "ETH");
+    console.log("current balance of owner: ", await getBalance(provider, signer.address), "ETH");
 }
 
 main()
